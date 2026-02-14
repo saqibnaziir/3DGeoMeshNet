@@ -8,6 +8,9 @@ This folder contains demo applications built on the 3DGeoMeshNet model: **interp
 
 Interpolates between two 3D meshes in latent space and saves a sequence of intermediate meshes.
 
+![3DGeoMeshNet Architecture](./Img/Inter_Extr.jpg)
+
+
 - **Usage:** Edit the path variables at the bottom of the script (`INTERPOLATION_FOLDER`, `CONFIG_PATH`, `OUTPUT_FOLDER`), then run:
   ```bash
   python Applications/interpolation.py
