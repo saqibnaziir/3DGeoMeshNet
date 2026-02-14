@@ -8,7 +8,8 @@ This folder contains demo applications built on the 3DGeoMeshNet model: **interp
 
 Interpolates between two 3D meshes in latent space and saves a sequence of intermediate meshes.
 
-![Interpolation and Extrapolation](3DGeoMeshNet/Img/Inter_Extr.jpg)
+
+![Interpolation and Extrapolation](../Img/Inter_Extr.jpg)
 
 
 
