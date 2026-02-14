@@ -1,0 +1,58 @@
+# Data and outputs (do not upload)
+data/
+Results/
+Complete/
+Error_scripts/
+Applications/EXTRAPOLATION/extrapolation_output/
+Applications/INTERPOLATION/interpolationoutput/
+Applications/Denoising/pred/
+Applications/Denoising/Figs/
+Applications/Denoising/error_analysis/
+Applications/Denoising/PSNR errors
+Applications/Denoising/PSNR errors/
+Mesh_completion/resluts/
+Mesh_completion/test_samples/
+Paper/
+Architecture/
+
+# Checkpoints and processed data
+*.pt
+*.pkl
+*.ply
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+
+# IDE and OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local config with your paths (use config.cfg.example as template)
+config/config.cfg
+
+# Large or local-only files
+*.pdf
+partial.ply
+index.html
+temp/
+extra_temp/
+config.cfg
+errors.py
+err_cal.py
+extrapolation.py
+interpolation.py
+run_FaceCom_Coma1.sh
