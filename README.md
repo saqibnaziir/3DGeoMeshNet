@@ -3,9 +3,7 @@
 We propose 3D Geometric Mesh Network (3DGeoMeshNet), a method for 3D mesh reconstruction and completion. 3DGeoMeshNet is a novel Graph Convolutional Network (GCN)-based framework that leverages anisotropic
 convolution layers to effectively learn multi-scale global and local features directly in the spatial domain. Unlike traditional approaches that convert meshes into voxel grids or point clouds, our method operates directly on the polygonal mesh structure, preserving geometric fidelity throughout the learning and reconstruction process. In addition to 3D mesh reconstruction, we extend our framework to tackle the 3D mesh completion task, where missing or incomplete regions of the mesh are accurately recovered. The completion results are further refined through a set of pre- and post-processing steps. We extensively evaluate our approach on two benchmark datasets, COMA and DFAUST, and achieve SOTA results for 3D mesh reconstruction on both datasets. Additionally, our mesh completion experiments on the COMA dataset demonstrate the promising capability of 3DGeoMeshNet in recovering incomplete geometries. We further showcase the versatility of our method through additional applications, including mesh denoising, interpolation, and extrapolation, highlighting the robustness and generalization ability of our framework across various 3D mesh processing tasks.:
 
-
 <br>
-
 ## Overview and Results
 
 
