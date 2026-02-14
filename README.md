@@ -149,6 +149,20 @@ Optional: set an experiment name and seed:
 python scripts/train.py --config_file config/config.cfg --experiment_name COMA_300_z256 --seed 42
 ```
 
+**Model ablation:** Choose the model variant with `--model` (or set `model_type` in `config/config.cfg`):
+
+| `--model`       | Description |
+|----------------|-------------|
+| `default`      | Full model (global + local paths, FeaStConv, residual + attention) — **default** |
+| `global_only`  | Global path only (FeaStConv) |
+| `local_only`   | Local path only (FeaStConv, residual) |
+| `gat`          | Full model with GATConv instead of FeaStConv |
+| `gcn`          | Full model with GCNConv instead of FeaStConv |
+
+Example: `python scripts/train.py --config_file config/config.cfg --model local_only`
+
+For reconstruction, set `model_type` in your config to the same value used when training that checkpoint.
+
 TensorBoard logs are saved under `dataset_dir/tensorboard_logs/`. View with:
 
 ```bash

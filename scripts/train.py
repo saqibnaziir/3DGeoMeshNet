@@ -175,6 +175,9 @@ def main():
     parser.add_argument("--config_file", type=str)
     parser.add_argument("--experiment_name", type=str, default=None, 
                         help="Name for this training run")
+    parser.add_argument("--model", type=str, default=None,
+                        choices=['default', 'global_only', 'local_only', 'gat', 'gcn'],
+                        help="Model ablation: default (full global+local FeaSt), global_only, local_only, gat, gcn")
     parser.add_argument("--seed", type=int, default=1, 
                         help="Random seed for reproducibility")
     args = parser.parse_args()
@@ -193,13 +196,10 @@ def main():
     torch.use_deterministic_algorithms(True, warn_only=True)
 
     config = read_config(args.config_file)
-    # train(config)
-        # If experiment_name is provided as an argument, override the config value
     if args.experiment_name:
         config['experiment_name'] = args.experiment_name
-    
-    # train(config)
-    # Add seed to config so it's accessible in other functions
+    if args.model is not None:
+        config['model_type'] = args.model
     config['seed'] = args.seed
     
     # Add seed to experiment name for clarity

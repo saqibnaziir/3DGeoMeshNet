@@ -1,4 +1,5 @@
 import configparser
+import os
 
 
 def read_config(file_name):
@@ -7,9 +8,20 @@ def read_config(file_name):
 
     config_parms = {}
 
-    config_parms['dataset_dir'] = config.get('I/O parameters', 'dataset_dir')
-    config_parms['template_file'] = config.get('I/O parameters', 'template_file')
-    config_parms['checkpoint_dir'] = config.get('I/O parameters', 'checkpoint_dir')
+    dataset_dir = config.get('I/O parameters', 'dataset_dir')
+    template_file = config.get('I/O parameters', 'template_file')
+    checkpoint_dir = config.get('I/O parameters', 'checkpoint_dir')
+
+    # Resolve PATH_TO_PROJECT placeholder: use directory containing the config folder as project root
+    if 'PATH_TO_PROJECT' in dataset_dir or 'PATH_TO_PROJECT' in template_file or 'PATH_TO_PROJECT' in checkpoint_dir:
+        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+        dataset_dir = dataset_dir.replace('PATH_TO_PROJECT', project_root).replace('/', os.sep)
+        template_file = template_file.replace('PATH_TO_PROJECT', project_root).replace('/', os.sep)
+        checkpoint_dir = checkpoint_dir.replace('PATH_TO_PROJECT', project_root).replace('/', os.sep)
+
+    config_parms['dataset_dir'] = dataset_dir
+    config_parms['template_file'] = template_file
+    config_parms['checkpoint_dir'] = checkpoint_dir
 
     config_parms['n_layers'] = config.getint('model parameters', 'n_layers')
     config_parms['z_length'] = config.getint('model parameters', 'z_length')
@@ -20,6 +32,7 @@ def read_config(file_name):
     config_parms['num_features_local'] = [int(x) for x in
                                           config.get('model parameters', 'num_features_local').split(',')]
     config_parms['batch_norm'] = True if config.getint('model parameters', 'batch_norm') == 1 else False
+    config_parms['model_type'] = config.get('model parameters', 'model_type', fallback='default')
 
     config_parms['num_workers'] = config.getint('training parameters', 'num_workers')
     config_parms['lr'] = config.getfloat('training parameters', 'lr')
