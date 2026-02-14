@@ -34,6 +34,8 @@ Extrapolates beyond two meshes in latent space (extending the trajectory defined
 
 ## Noising / Denoising
 
+![Mesh Denoising](../Img/Result_denoising3.jpg)
+
 **File:** `noising.py`
 
 Adds Gaussian noise along vertex normals to meshes (e.g. to create synthetic noisy inputs for denoising experiments).
